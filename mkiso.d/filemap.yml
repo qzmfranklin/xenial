@@ -1,0 +1,8 @@
+---
+
+# This file stores the mapping between files stored in this directory to the
+# files to be stored on the iso image.
+
+isolinux.cfg: isolinux/isolinux.cfg
+txt.cfg: isolinux/txt.cfg
+geek.seed: preseed/geek.seed

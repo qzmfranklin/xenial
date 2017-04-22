@@ -1,0 +1,42 @@
+This directory contains the files that should be copied to the iso image to make
+the iso install automatically.
+
+Here is a list of files touched and a brief description of what was changed
+according to the original content.  The root path / is the root of the iso.
+
+1.  /isolinux/isolinux.cfg
+
+Commented the following two lines
+    ```
+    default vesamenu.c32
+    ui gfxboot bootlogo
+    ```
+
+Without this change, a human has to select the language.
+
+
+2.  /isolinux/txt.cfg
+
+Largely inspired/taken from the following thread:
+    https://askubuntu.com/questions/806820/how-do-i-create-a-completely-unattended-install-of-ubuntu-desktop-16-04-1-lts
+
+Though, the above thread talked about the desktop version.
+
+Note that I also added the following after the triple dash:
+    console=tty0 console=ttyS0,115200
+
+According to the Linux kernel Documentation/serialconsole.txt, the output is
+directed to the serial port (ttyS0) instead of vga (tty0).
+
+
+3.  preseed/geek.seed
+
+Modified from the official example preseed file, as downloadable here:
+        https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
+
+Modified the following fields:
+    d-i debian-installer/locale string en_US
+    d-i passwd/user-fullname string GeekMe
+    d-i passwd/username string geek
+    d-i passwd/user-password-crypted password dhw55L1G6Og9Y
+    d-i user-setup/allow-password-weak boolean true
