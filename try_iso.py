@@ -25,6 +25,8 @@ def execute(args):
     rootfs_filename = os.path.join(this_dir, 'tmp', 'ubuntu-16-server-try-iso.img')
     iso_fname = os.path.abspath(args.iso)
 
+    run_cmd(['mkdir', '-p', 'tmp'])
+
     # Tweak file permissions.
     run_cmd(['chmod', '666', iso_fname])
     run_cmd(['qemu-img', 'create', '-f', 'raw', rootfs_filename, '8G'])
