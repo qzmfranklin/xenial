@@ -361,27 +361,27 @@ d-i partman/confirm_nooverwrite boolean true
 #tasksel tasksel/first multiselect kubuntu-desktop
 
 # Individual additional packages to install
-d-i pkgsel/include \
-        string \
-        openssh-server \
-        build-essential \
-        cscope \
-        ctags \
-        htop \
-        iftop \
-        syslinux-utils \
-        libguestfs-tools \
-        libvirt-bin \
-        mdadm \
-        mongodb \
-        python3-libvirt \
-        python3-paramiko \
-        python3-yaml \
-        qemu-system-x86 \
-        smartmontools \
-        tree \
-        twine \
-        virt-manager
+#d-i pkgsel/include \
+        #string \
+        #openssh-server \
+        #build-essential \
+        #cscope \
+        #ctags \
+        #htop \
+        #iftop \
+        #syslinux-utils \
+        #libguestfs-tools \
+        #libvirt-bin \
+        #mdadm \
+        #mongodb \
+        #python3-libvirt \
+        #python3-paramiko \
+        #python3-yaml \
+        #qemu-system-x86 \
+        #smartmontools \
+        #tree \
+        #twine \
+        #virt-manager
 # Whether to upgrade packages after debootstrap.
 # Allowed values: none, safe-upgrade, full-upgrade
 #d-i pkgsel/upgrade select none
