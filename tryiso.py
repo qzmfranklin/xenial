@@ -21,15 +21,16 @@ def run_cmd(cmd):
 def execute(args):
     domain_name = 'xenial-try-iso'
     this_dir = os.path.dirname(os.path.abspath(__file__))
-    xml_template_fname = os.path.join(this_dir, 'try_iso.d', 'bootstrap.xml.j2')
-    rootfs_filename = os.path.join(this_dir, 'tmp', 'ubuntu-16-server-try-iso.img')
+    xml_template_fname = os.path.join(this_dir, 'tryiso.d', 'bootstrap.xml.j2')
+    rootfs_filename = os.path.join(this_dir, 'tmp',
+            'ubuntu-16-server-try-iso.qcow2')
     iso_fname = os.path.abspath(args.iso)
 
     run_cmd(['mkdir', '-p', 'tmp'])
 
     # Tweak file permissions.
     run_cmd(['chmod', '666', iso_fname])
-    run_cmd(['qemu-img', 'create', '-f', 'raw', rootfs_filename, '8G'])
+    run_cmd(['qemu-img', 'create', '-f', 'qcow2', rootfs_filename, '300G'])
     run_cmd(['chmod', '666', rootfs_filename])
 
     # Generate xml file content.
